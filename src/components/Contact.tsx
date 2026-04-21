@@ -19,7 +19,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 relative" ref={null}>
+    <section id="contact" className="py-28 px-6 relative" ref={ref}>
       <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -29,7 +29,10 @@ export default function Contact() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <p className="text-xs uppercase tracking-[0.3em] text-text-muted mb-4">
+              Contact
+            </p>
+            <h2 className="text-4xl md:text-5xl font-display font-semibold mb-6">
               Ready to Stop Experimenting and{" "}
               <span className="prism-text">Start Executing?</span>
             </h2>
@@ -56,16 +59,16 @@ export default function Contact() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            <form onSubmit={handleSubmit} className="bg-surface rounded-2xl p-8 border border-white/5">
+            <form onSubmit={handleSubmit} className="glass-card rounded-2xl p-8">
               <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input
                     type="text"
                     placeholder="Name"
                     required
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/50 transition-colors placeholder:text-text-secondary/50"
+                    className="w-full bg-background/80 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-colors placeholder:text-text-secondary/50"
                   />
                   <input
                     type="text"
@@ -73,7 +76,7 @@ export default function Contact() {
                     required
                     value={form.company}
                     onChange={(e) => setForm({ ...form, company: e.target.value })}
-                    className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/50 transition-colors placeholder:text-text-secondary/50"
+                    className="w-full bg-background/80 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-colors placeholder:text-text-secondary/50"
                   />
                 </div>
                 <input
@@ -82,7 +85,7 @@ export default function Contact() {
                   required
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/50 transition-colors placeholder:text-text-secondary/50"
+                  className="w-full bg-background/80 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-colors placeholder:text-text-secondary/50"
                 />
                 <textarea
                   placeholder="Tell us about your AI challenge"
@@ -90,7 +93,7 @@ export default function Contact() {
                   required
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/50 transition-colors placeholder:text-text-secondary/50 resize-none"
+                  className="w-full bg-background/80 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-colors placeholder:text-text-secondary/50 resize-none"
                 />
                 <button
                   type="submit"
@@ -108,6 +111,9 @@ export default function Contact() {
                     We'll be in touch within 24 hours.
                   </p>
                 )}
+                <p className="text-xs text-text-muted text-center">
+                  We respond within 1 business day. No spam, ever.
+                </p>
               </div>
             </form>
           </motion.div>

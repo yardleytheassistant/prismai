@@ -1,13 +1,11 @@
-import Link from "next/link";
-
 export default function Footer() {
   return (
-    <footer className="py-12 px-6 border-t border-white/5">
+    <footer className="py-14 px-6 border-t border-white/5 bg-surface/30">
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-bold mb-3">
+            <h3 className="text-xl font-display font-semibold mb-3">
               <span className="prism-text">Prism</span>AI
             </h3>
             <p className="text-text-secondary text-sm leading-relaxed">
@@ -41,7 +39,7 @@ export default function Footer() {
             <div className="flex gap-4">
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-text-secondary hover:text-primary hover:bg-surface/80 transition-all"
+                className="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-text-secondary hover:text-primary hover:bg-surface/80 transition-all border border-white/5"
                 aria-label="LinkedIn"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -50,7 +48,7 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-text-secondary hover:text-primary hover:bg-surface/80 transition-all"
+                className="w-10 h-10 rounded-full bg-surface flex items-center justify-center text-text-secondary hover:text-primary hover:bg-surface/80 transition-all border border-white/5"
                 aria-label="Twitter/X"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -63,7 +61,7 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-text-secondary text-xs">
-            © 2026 PrismAI. All rights reserved.
+            © {new Date().getFullYear()} PrismAI. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs text-text-secondary">
             <a href="#" className="hover:text-primary transition-colors">Privacy</a>

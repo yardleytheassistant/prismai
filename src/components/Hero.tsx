@@ -14,7 +14,7 @@ export default function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden hero-mesh"
+      className="relative min-h-[90vh] lg:min-h-screen flex items-center justify-center overflow-hidden hero-mesh"
     >
       {/* Floating prism shapes */}
       <motion.div
@@ -26,7 +26,7 @@ export default function Hero() {
           <defs>
             <linearGradient id="prism1" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#7B5CFF" />
-              <stop offset="100%" stopColor="#00D4FF" />
+              <stop offset="100%" stopColor="#4CC9F0" />
             </linearGradient>
           </defs>
           <polygon points="50,5 95,80 5,80" fill="none" stroke="url(#prism1)" strokeWidth="1.5" />
@@ -39,7 +39,7 @@ export default function Hero() {
         transition={{ duration: 8, repeat: Infinity, delay: 1 }}
       >
         <svg viewBox="0 0 100 100" className="w-full h-full">
-          <polygon points="50,5 95,80 5,80" fill="rgba(0,212,255,0.3)" />
+          <polygon points="50,5 95,80 5,80" fill="rgba(76,201,240,0.3)" />
         </svg>
       </motion.div>
 
@@ -49,7 +49,7 @@ export default function Hero() {
         transition={{ duration: 7, repeat: Infinity, delay: 2 }}
       >
         <svg viewBox="0 0 100 100" className="w-full h-full">
-          <polygon points="50,5 95,80 5,80" fill="none" stroke="#FF6B6B" strokeWidth="1" />
+          <polygon points="50,5 95,80 5,80" fill="none" stroke="#F6C177" strokeWidth="1" />
         </svg>
       </motion.div>
 
@@ -59,7 +59,7 @@ export default function Hero() {
         transition={{ duration: 9, repeat: Infinity, delay: 0.5 }}
       >
         <svg viewBox="0 0 100 100" className="w-full h-full">
-          <polygon points="50,5 95,80 5,80" fill="rgba(123,92,255,0.5)" />
+          <polygon points="50,5 95,80 5,80" fill="rgba(123,92,255,0.45)" />
         </svg>
       </motion.div>
 
@@ -69,16 +69,17 @@ export default function Hero() {
       {/* Content */}
       <motion.div
         style={{ y, opacity }}
-        className="relative z-10 text-center px-6 max-w-5xl mx-auto"
+        className="relative z-10 text-center px-6 max-w-5xl mx-auto pt-24 pb-16"
       >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-6"
+          className="mb-6 flex justify-center"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full text-sm font-medium border border-primary/30 text-primary bg-primary/10">
-            AI Adoption Consulting
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-[0.2em] uppercase border border-white/10 text-text-secondary bg-surface/70">
+            PrismAI Advisory
+            <span className="h-1.5 w-1.5 rounded-full bg-primary/80" />
           </span>
         </motion.div>
 
@@ -86,7 +87,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight"
+          className="text-5xl md:text-7xl lg:text-8xl font-display font-semibold tracking-tight mb-6 leading-[1.05]"
         >
           From AI Potential to{" "}
           <span className="prism-text">AI Reality.</span>
@@ -96,7 +97,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg md:text-xl text-text-secondary mb-10 max-w-3xl mx-auto leading-relaxed"
+          className="text-lg md:text-xl text-text-secondary/90 mb-10 max-w-3xl mx-auto leading-relaxed"
         >
           PrismAI helps enterprise teams cut through the noise — building the strategy,
           infrastructure, and culture to make AI actually work.
@@ -110,15 +111,17 @@ export default function Hero() {
         >
           <a
             href="#contact"
-            className="btn-primary px-8 py-4 rounded-xl font-semibold text-white w-full sm:w-auto text-center"
+            className="btn-primary px-8 py-4 rounded-xl font-semibold text-white w-full sm:w-auto text-center inline-flex items-center justify-center gap-3"
           >
             Book a Strategy Call
+            <span aria-hidden className="text-white/80">→</span>
           </a>
           <a
             href="#services"
-            className="btn-secondary px-8 py-4 rounded-xl font-semibold text-white w-full sm:w-auto text-center"
+            className="btn-secondary px-8 py-4 rounded-xl font-semibold text-white w-full sm:w-auto text-center inline-flex items-center justify-center gap-3"
           >
             See Our Work
+            <span aria-hidden className="text-white/70">↘</span>
           </a>
         </motion.div>
 
@@ -129,10 +132,10 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.5 }}
           className="mt-16 pt-8 border-t border-white/5"
         >
-          <p className="text-xs text-text-secondary uppercase tracking-widest mb-6">
+          <p className="text-xs text-text-secondary uppercase tracking-[0.3em] mb-6">
             Trusted by teams at
           </p>
-          <div className="flex flex-wrap justify-center gap-8 md:gap-12 opacity-40">
+          <div className="flex flex-wrap justify-center gap-8 md:gap-12 opacity-50">
             {["Meridian Corp", "Axiom Systems", "Nexus Group", "Vertex Labs", "Cascade Health"].map(
               (company) => (
                 <span key={company} className="text-sm font-medium text-text-secondary">
@@ -165,7 +168,7 @@ function MouseOrb() {
         className="absolute w-96 h-96 rounded-full"
         style={{
           background:
-            "radial-gradient(circle, rgba(123,92,255,0.15) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(123,92,255,0.18) 0%, transparent 70%)",
           filter: "blur(40px)",
         }}
         animate={{ x: ["0%", "100%"], y: ["0%", "100%"] }}

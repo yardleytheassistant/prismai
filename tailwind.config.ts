@@ -9,16 +9,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#050811",
-        surface: "#0D1424",
+        background: "#05070F",
+        surface: "#0B1426",
+        "surface-2": "#101B33",
+        "surface-3": "#0F172A",
         primary: "#7B5CFF",
-        secondary: "#00D4FF",
-        tertiary: "#FF6B6B",
-        "text-primary": "#FFFFFF",
-        "text-secondary": "#8892B0",
+        secondary: "#4CC9F0",
+        tertiary: "#F6C177",
+        "text-primary": "#F7F9FF",
+        "text-secondary": "#9AA4BF",
+        "text-muted": "#6E7691",
       },
       fontFamily: {
-        inter: ["var(--font-inter)", "system-ui", "sans-serif"],
+        sans: ["var(--font-sora)", "system-ui", "sans-serif"],
+        display: ["var(--font-space)", "var(--font-sora)", "sans-serif"],
         mono: ["var(--font-jetbrains)", "monospace"],
       },
       backgroundImage: {

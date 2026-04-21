@@ -3,13 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --background: #050811;
-  --surface: #0D1424;
+  --background: #05070F;
+  --surface: #0B1426;
+  --surface-2: #101B33;
+  --surface-3: #0F172A;
   --primary: #7B5CFF;
-  --secondary: #00D4FF;
-  --tertiary: #FF6B6B;
-  --text-primary: #FFFFFF;
-  --text-secondary: #8892B0;
+  --secondary: #4CC9F0;
+  --tertiary: #F6C177;
+  --text-primary: #F7F9FF;
+  --text-secondary: #9AA4BF;
+  --text-muted: #6E7691;
 }
 
 * {
@@ -36,7 +39,7 @@ body {
 
 /* Prism gradient text */
 .prism-text {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--tertiary) 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 55%, var(--tertiary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -66,30 +69,33 @@ body {
 
 /* Glow button */
 .btn-primary {
-  background: var(--primary);
-  box-shadow: 0 0 20px rgba(123, 92, 255, 0.4);
+  background: linear-gradient(135deg, rgba(123, 92, 255, 0.95), rgba(76, 201, 240, 0.95));
+  border: 1px solid rgba(123, 92, 255, 0.35);
+  box-shadow: 0 10px 30px rgba(76, 201, 240, 0.2), 0 0 0 1px rgba(123, 92, 255, 0.15) inset;
   transition: all 0.3s ease;
 }
 .btn-primary:hover {
-  box-shadow: 0 0 40px rgba(123, 92, 255, 0.6), 0 0 80px rgba(0, 212, 255, 0.2);
+  box-shadow: 0 14px 45px rgba(123, 92, 255, 0.35), 0 0 80px rgba(76, 201, 240, 0.25);
   transform: translateY(-2px);
 }
 
 .btn-secondary {
-  border: 1px solid var(--primary);
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(123, 92, 255, 0.35);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
   transition: all 0.3s ease;
 }
 .btn-secondary:hover {
-  background: rgba(123, 92, 255, 0.1);
-  box-shadow: 0 0 20px rgba(123, 92, 255, 0.2);
+  background: rgba(123, 92, 255, 0.12);
+  box-shadow: 0 10px 30px rgba(123, 92, 255, 0.18);
 }
 
 /* Grid background pattern */
 .grid-bg {
   background-image: 
-    linear-gradient(rgba(123, 92, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(123, 92, 255, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(rgba(123, 92, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(76, 201, 240, 0.035) 1px, transparent 1px);
+  background-size: 70px 70px;
 }
 
 /* Section reveal animation */
@@ -112,9 +118,30 @@ body {
 /* Gradient mesh hero */
 .hero-mesh {
   background: 
-    radial-gradient(ellipse at 20% 20%, rgba(123, 92, 255, 0.2) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 30%, rgba(0, 212, 255, 0.15) 0%, transparent 45%),
-    radial-gradient(ellipse at 50% 80%, rgba(255, 107, 107, 0.1) 0%, transparent 40%),
-    radial-gradient(ellipse at 0% 100%, rgba(123, 92, 255, 0.1) 0%, transparent 30%),
+    radial-gradient(ellipse at 20% 15%, rgba(123, 92, 255, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 25%, rgba(76, 201, 240, 0.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 55% 85%, rgba(246, 193, 119, 0.12) 0%, transparent 40%),
+    radial-gradient(ellipse at 0% 100%, rgba(123, 92, 255, 0.12) 0%, transparent 30%),
     var(--background);
+}
+
+.section-divider {
+  position: relative;
+}
+.section-divider::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -1px;
+  width: 60%;
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(123, 92, 255, 0.4), rgba(76, 201, 240, 0.4), transparent);
+}
+
+.glass-card {
+  background: linear-gradient(180deg, rgba(16, 27, 51, 0.9), rgba(11, 20, 38, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 60px rgba(5, 7, 15, 0.55);
+  backdrop-filter: blur(12px);
 }

@@ -35,7 +35,7 @@ export default function Testimonials() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="py-24 px-6 relative bg-surface/50" ref={null}>
+    <section id="testimonials" className="py-28 px-6 relative bg-surface/40 section-divider" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -43,7 +43,10 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <p className="text-xs uppercase tracking-[0.3em] text-text-muted mb-4">
+            Testimonials
+          </p>
+          <h2 className="text-4xl md:text-5xl font-display font-semibold mb-4">
             What Leaders <span className="prism-text">Say</span>
           </h2>
         </motion.div>
@@ -55,11 +58,17 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className={`bg-background rounded-2xl p-8 border transition-all duration-300 cursor-pointer ${
-                active === i ? "border-primary/50 shadow-lg shadow-primary/10" : "border-white/5"
+              className={`rounded-2xl p-8 border transition-all duration-300 cursor-pointer ${
+                active === i
+                  ? "glass-card border-primary/40 shadow-lg shadow-primary/10"
+                  : "bg-surface/70 border-white/5"
               }`}
               onClick={() => setActive(i)}
             >
+              <div className="mb-6 flex items-center justify-between text-text-muted">
+                <span className="text-xs uppercase tracking-[0.2em]">Client</span>
+                <span className="text-2xl">“</span>
+              </div>
               <p className="text-text-secondary leading-relaxed mb-6 text-sm">&ldquo;{t.quote}&rdquo;</p>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-sm font-bold">

@@ -10,7 +10,7 @@ const services = [
         <defs>
           <linearGradient id="svc1" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#7B5CFF" />
-            <stop offset="100%" stopColor="#00D4FF" />
+            <stop offset="100%" stopColor="#4CC9F0" />
           </linearGradient>
         </defs>
         <circle cx="24" cy="24" r="20" stroke="url(#svc1)" strokeWidth="2" />
@@ -27,7 +27,7 @@ const services = [
       <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12">
         <defs>
           <linearGradient id="svc2" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#00D4FF" />
+            <stop offset="0%" stopColor="#4CC9F0" />
             <stop offset="100%" stopColor="#7B5CFF" />
           </linearGradient>
         </defs>
@@ -44,7 +44,7 @@ const services = [
       <svg viewBox="0 0 48 48" fill="none" className="w-12 h-12">
         <defs>
           <linearGradient id="svc3" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#FF6B6B" />
+            <stop offset="0%" stopColor="#F6C177" />
             <stop offset="100%" stopColor="#7B5CFF" />
           </linearGradient>
         </defs>
@@ -64,7 +64,7 @@ export default function Services() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="services" className="py-24 px-6 relative" ref={null}>
+    <section id="services" className="py-28 px-6 relative section-divider" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -72,7 +72,10 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <p className="text-xs uppercase tracking-[0.3em] text-text-muted mb-4">
+            Services
+          </p>
+          <h2 className="text-4xl md:text-5xl font-display font-semibold mb-4">
             What We <span className="prism-text">Deliver</span>
           </h2>
           <p className="text-text-secondary text-lg max-w-2xl mx-auto">
@@ -87,13 +90,19 @@ export default function Services() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group relative bg-surface rounded-2xl p-8 prism-border cursor-default"
+              className="group relative glass-card rounded-2xl p-8 cursor-default"
               style={{ transformStyle: "preserve-3d" }}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
             >
-              <div className="mb-6">{service.icon}</div>
-              <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+              <div className="mb-6 inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-background/70 border border-white/10">
+                {service.icon}
+              </div>
+              <h3 className="text-xl font-display font-semibold mb-3">{service.title}</h3>
               <p className="text-text-secondary leading-relaxed">{service.description}</p>
+              <div className="mt-6 text-sm text-text-muted flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-secondary/80" />
+                Tailored to enterprise scale
+              </div>
             </motion.div>
           ))}
         </div>
