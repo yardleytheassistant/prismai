@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #050811;
+  --surface: #0D1424;
+  --primary: #7B5CFF;
+  --secondary: #00D4FF;
+  --tertiary: #FF6B6B;
+  --text-primary: #FFFFFF;
+  --text-secondary: #8892B0;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+/* Prism gradient text */
+.prism-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--tertiary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradient border effect */
+.prism-border {
+  position: relative;
+}
+.prism-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--tertiary));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.prism-border:hover::before {
+  opacity: 1;
+}
+
+/* Glow button */
+.btn-primary {
+  background: var(--primary);
+  box-shadow: 0 0 20px rgba(123, 92, 255, 0.4);
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  box-shadow: 0 0 40px rgba(123, 92, 255, 0.6), 0 0 80px rgba(0, 212, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  border: 1px solid var(--primary);
+  transition: all 0.3s ease;
+}
+.btn-secondary:hover {
+  background: rgba(123, 92, 255, 0.1);
+  box-shadow: 0 0 20px rgba(123, 92, 255, 0.2);
+}
+
+/* Grid background pattern */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(123, 92, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(123, 92, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Section reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card 3D tilt */
+.card-tilt {
+  transition: transform 0.1s ease-out;
+  transform-style: preserve-3d;
+}
+
+/* Gradient mesh hero */
+.hero-mesh {
+  background: 
+    radial-gradient(ellipse at 20% 20%, rgba(123, 92, 255, 0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 30%, rgba(0, 212, 255, 0.15) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 80%, rgba(255, 107, 107, 0.1) 0%, transparent 40%),
+    radial-gradient(ellipse at 0% 100%, rgba(123, 92, 255, 0.1) 0%, transparent 30%),
+    var(--background);
+}
