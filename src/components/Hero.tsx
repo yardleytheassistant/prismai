@@ -2,7 +2,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
-export default function Hero() {
+export default function Hero({ onMissionControl }: { onMissionControl?: () => void }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -123,6 +123,23 @@ export default function Hero() {
             See Our Work
             <span aria-hidden className="text-white/70">↘</span>
           </a>
+          {onMissionControl && (
+            <button
+              onClick={onMissionControl}
+              className="px-8 py-4 rounded-xl font-semibold w-full sm:w-auto text-center inline-flex items-center justify-center gap-3 transition-all font-mono text-sm tracking-widest"
+              style={{
+                background: 'rgba(0,255,65,0.06)',
+                border: '1px solid rgba(0,255,65,0.25)',
+                color: '#00FF41',
+                textShadow: '0 0 8px rgba(0,255,65,0.5)',
+                boxShadow: '0 0 20px rgba(0,255,65,0.05)',
+              }}
+              title="Open Mission Control (Ctrl+Shift+M)"
+            >
+              <span className="w-2 h-2 rounded-full bg-[#00FF41] animate-pulse" />
+              MISSION CONTROL
+            </button>
+          )}
         </motion.div>
 
         {/* Social proof ticker */}
